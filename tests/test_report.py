@@ -1,6 +1,6 @@
 import pytest
 
-from report import SalesReport
+from main import SalesReport
 
 HEADER = "ORDERNUMBER,SALES,PRODUCTLINE\n"
 

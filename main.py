@@ -2,7 +2,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from report import generate_report
+from report import SalesReport, generate_report
 
 
 def parse_args(argv=None) -> argparse.Namespace:
@@ -14,7 +14,7 @@ def parse_args(argv=None) -> argparse.Namespace:
 def main(argv=None) -> int:
     args = parse_args(argv)
     try:
-        print(generate_report(args.csv_path))
+        print(SalesReport(args.csv_path))
     except (FileNotFoundError, ValueError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
