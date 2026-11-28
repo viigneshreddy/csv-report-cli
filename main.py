@@ -14,11 +14,8 @@ def parse_args(argv=None) -> argparse.Namespace:
 def main(argv=None) -> int:
     args = parse_args(argv)
     try:
-        if not args.csv_path.is_file():
-            print(f"Error: file not found: {args.csv_path}", file=sys.stderr)
-            return 1
         print(generate_report(args.csv_path))
-    except Exception as e:
+    except (FileNotFoundError, ValueError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
     return 0
